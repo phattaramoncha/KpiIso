@@ -34,7 +34,7 @@
             var data = '{in_lob: null, in_proj_type: null}';
             getProj(data);
 
-
+            //"LOW_RISE,HIGH_RISE"
 
 
 
@@ -58,7 +58,7 @@
                 var $lob = $("#in_lob");
 
                 var data;
-                if ($proj_type.val() === "NULL") {//$proj_type.val() === null ||
+                if ($proj_type.val() === "LOW_RISE,HIGH_RISE") {//$proj_type.val() === null ||
                     data = '{in_lob: "' + $lob.val() + '", in_proj_type: null}';
                 }
                 else {
@@ -66,6 +66,7 @@
                 }
 
                 getProj(data);
+                //console.log(data);
 
             });
 
@@ -110,7 +111,7 @@
         }
 
         function bindProjTyp() {
-            var json = { "LOW_RISE": "แนวราบ", "HIGH_RISE": "อาคารสูง", "NULL": "แนวราบ + อาคารสูง" };
+            var json = { "LOW_RISE": "แนวราบ", "HIGH_RISE": "อาคารสูง", "LOW_RISE,HIGH_RISE": "แนวราบ + อาคารสูง" };
             var $select = $('#in_proj_type');
             $select.find('option').remove();
             $.each(json, function (key, value) {
@@ -128,13 +129,13 @@
             //console.log($lob.val());
 
             var data;
-            if ($proj_type.val() === "null") {
+            if ($proj_type.val() === "LOW_RISE,HIGH_RISE") {
                 data = '{in_lob: "' + $lob.val() + '", in_proj_type: null}';
             }
             else {
                 data = '{in_lob: "' + $lob.val() + '", in_proj_type: "' + $proj_type.val() + '"}';
             }
-            console.log(data);
+            //console.log(data);
 
             getProj(data);
         }
@@ -148,8 +149,8 @@
 
             //var data = '{in_lob: "' + $lob.val() + '", in_proj_type: ' + $proj_type.val() === null ? null : $proj_type.val() + '}';
             var data;
-            if ($proj_type.val() === "null") {
-                data = '{in_lob: "' + $lob.val() + '", in_proj_type: null}';
+            if ($proj_type.val() === "LOW_RISE,HIGH_RISE") {
+                data = '{in_lob: "' + $lob.val() + '", in_proj_type: "LOW_RISE,HIGH_RISE"}';
             }
             else {
                 data = '{in_lob: "' + $lob.val() + '", in_proj_type: "' + $proj_type.val() + '"}';
@@ -250,7 +251,7 @@
 
             data_ = '{in_lob: "' + $lob.val() + '", in_projid: "' + in_proj + '", in_period: "' + in_month + '", in_projtype: "' + in_proj_type + '", type_rpt: "' + type_rpt + '"}';
             //}
-            console.log(data_);
+            //console.log(data_);
 
 
             //202206
